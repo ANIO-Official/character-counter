@@ -1,11 +1,21 @@
-interface CharacterCounterProps{
-
+export interface CharacterCounterProps{
+    minWords?: number;
+    maxWords?: number;
+    targetReadingTime?: number; // in minutes
 }
 
-interface StatsDisplayProps{
-
+export interface TextStats {
+    characterCount: number;
+    wordCount: number;
+    readingTime: number; // in minutes
+}
+export interface StatsDisplayProps{
+    stats: TextStats;
+    showReadingTime?: boolean;
 }
 
-interface TextInputProps{
-    
+export interface TextInputProps{
+    onTextChange: (text: string) => void;
+    placeholder?: string;
+    initialValue?: string;
 }
