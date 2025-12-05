@@ -17,7 +17,7 @@ export default function StatsDisplay({stats, showReadingTime}:StatsDisplayProps)
                     <p className="stats-limit">Min: 25 | Max: 100</p>
                 </div>
                 <br/>
-                <div>
+                <div hidden={!showReadingTime}>
                     <p className="stats-title">Reading Time</p>
                     <p className="stats-number">{stats.readingTime}</p>
                 </div>
