@@ -15,7 +15,11 @@ export default function CharacterCounter({minWords, maxWords, targetReadingTime}
     }
 
     const calculateWords = ()=>{
-        const words = (text.split(' ')).length
+        //Split the text by spaces.
+        const textSplit = (text.split(' '))
+
+        //Return the length number of items in textSplit that are not empty spaces. (actual words)
+        const words = (textSplit.filter((word:string) => word !== '')).length
         return text === ""? 0 : words
     }
     const calculateReadTime = (words:number) =>{
