@@ -7,7 +7,6 @@ function App() {
   return (
     <>
       <CharacterCounter
-      minWords={7}
       />
     </>
   )

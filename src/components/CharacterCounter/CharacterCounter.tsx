@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import TextInput from '../TextInput/TextInput'
 import StatsDisplay from "../StatsDisplay/StatsDisplay"
-import type { CharacterCounterProps } from '../../type'
+import type { CharacterCounterProps, TextStats } from '../../type'
 
 export default function CharacterCounter({minWords, maxWords, targetReadingTime}:CharacterCounterProps) {
-    const [text, setText] = useState('Inital Value')
+    const [text, setText] = useState(`Example: Peter Piper picked a pluck of peppers. How many peppers did Peter Picker pick?`)
 
     const handleTextInputChange = (userInput: string) => {
         setText(userInput)
@@ -14,7 +14,19 @@ export default function CharacterCounter({minWords, maxWords, targetReadingTime}
         return variable !== undefined? false:true
     }
 
-    
+    const calculateWords = ()=>{
+        const words = (text.split(' ')).length
+        return text === ""? 0 : words
+    }
+    const calculateReadTime = (words:number) =>{
+        return Math.floor(words * 0.3)
+    }
+
+    const stats : TextStats = {
+        characterCount: (text.split('')).length,
+        wordCount: calculateWords(),
+        readingTime: calculateReadTime((calculateWords()))
+    }
 
     return (
         <>
@@ -22,9 +34,10 @@ export default function CharacterCounter({minWords, maxWords, targetReadingTime}
                 <TextInput
                     onTextChange={handleTextInputChange}
                     initialValue={text}
+                    placeholder='Type a sentence. Try your name!'
                 />
                 <StatsDisplay
-                    stats={{ characterCount: 4, wordCount: 4, readingTime: 5 }}
+                    stats={stats}
                     showReadingTime={true}
                 />
                 <div>
