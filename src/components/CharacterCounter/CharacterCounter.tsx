@@ -11,24 +11,28 @@ export default function CharacterCounter({minWords, maxWords, targetReadingTime}
         setText(userInput)
     }
 
+    //Check if the value is set for this number variable. Used to determine hidden status
     const checkNumValue = (variable:number | null |undefined): boolean =>{
         return variable !== undefined? false:true
     }
 
+    //Split by words, dont include empty space.
     const calculateWords = ()=>{
         //Split the text by spaces.
         const textSplit = (text.split(' '))
 
         //Return the length number of items in textSplit that are not empty spaces. (actual words)
         const words = (textSplit.filter((word:string) => word !== '')).length
-        return text === ""? 0 : words
+        return text === ""? 0 : words //check if the text is empty, when it's not, return the number of words.
     }
+
+    //Formula for read time. 
     const calculateReadTime = (words:number) =>{
         return Math.floor(words * 0.3)
     }
 
     const stats : TextStats = {
-        characterCount: (text.split('')).length,
+        characterCount: (text.split('')).length, //split input text by each character and return how many there are
         wordCount: calculateWords(),
         readingTime: calculateReadTime((calculateWords()))
     }
