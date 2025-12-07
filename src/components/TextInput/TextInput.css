@@ -1,0 +1,23 @@
+.text-input{
+    background-color: white;
+    min-width: 28vw;
+    max-width: 28vw;
+    height: 28vh;
+    border-radius: 1rem;
+}
+
+/*Medium Screens*/
+@media (1560px >= width >= 560px){
+    .text-input{
+    min-width: 50vw;
+    max-width: 50vw;
+}
+}
+
+/*Small Screens*/
+@media (max-width: 550px){
+    .text-input{
+    min-width: 80vw;
+    max-width: 80vw;
+}
+}

@@ -1,3 +1,4 @@
+import './TextInput.css'
 import type { TextInputProps } from "../../type";
 
 
@@ -11,8 +12,8 @@ export default function TextInput({ onTextChange, placeholder, initialValue }: T
 
     return (
         <>
-            <div>
-                <textarea onChange={handleChange} placeholder={placeholder}>{initialValue}</textarea>
+            <div className="text-input-container">
+                <textarea className="text-input" onChange={handleChange} placeholder={placeholder}>{initialValue}</textarea>
             </div>
             <br/>
         </>
