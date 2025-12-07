@@ -38,7 +38,7 @@ Required: Have Node and NPM installed.
  1.  Clone the repository or Download the ZIP file and extract the files.
  2.  Open the file in Visual Studio Code.
  3.  Open the Terminal using Ctrl + ~
- 4.  cd into the directory 'characte-counter' in the terminal.
+ 4.  cd into the directory 'character-counter' in the terminal.
  5.  Run the project using "npm run dev" in the terminal.
  6.  You should see 3 options appear. Follow the link for the Local option. Such as "http://localhost:5173/"
 
@@ -71,7 +71,7 @@ A web app in your default browser will appear with the character counter availab
   />
 
  ```
- 3. Depending on the gameName set you will see the goal progress for the related goal and stat.
+ 3. Depending on the goalName set you will see the goal progress for the related goal and stat.
 
   - 'Min. Words' -> Show whether minimum words goal is met in comparison to current stats.
   - 'Max. Words' -> Show whether maximum words goal is met in comparison to current stats.
@@ -123,7 +123,11 @@ const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         </>
     )
 
-//In the above return, the text area's onChange is calling handleChange which updates the value and calls handlTextInputChange using the newValue to update the 'text' state variable. The 'text' state variable is equal to the initialValue prop here as well. So it will always reflect the updates in the text area input.
+/*
+ In the above return, the text area's onChange is calling handleChange which updates the value and calls handlTextInputChange
+  using the newValue to update the 'text' state variable. The 'text' state variable is equal to the initialValue prop here as well. 
+  So it will always reflect the updates in the text area input.
+*/
 ```
 
 This is how I view the callback pattern interaction be better understanding. Hope this helps! 🤗
@@ -151,9 +155,9 @@ When calculating reading time, I wanted to consider the word count. This is beca
         return Math.floor(words * 0.3) // 0.3 seconds per word
     }
 
-  //As plain text explainations --------------------------------------
+  //As plain text explanations --------------------------------------
 
-  totalWords = filter out just the words from this array : (returned array from text input split by spaces)
+  totalWords = filter out just the words from this array -> (returned array from text input split by spaces)
 
   totalReadingTime = words * averageTimePerWord
 
