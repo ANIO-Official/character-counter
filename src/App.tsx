@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <CharacterCounter
+      minWords={5}
       maxWords={15}
+      targetReadingTime={2}
       />
     </>
   )

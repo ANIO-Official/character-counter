@@ -35,12 +35,12 @@ export default function GoalAlert({
   function checkGoal(): string {
     switch (true) {
       case goalName === "Min. Words" && goalAmount.minWords !== undefined:
-        return goalAmount.minWords <= stats.wordCount ? "green" : "red";
+        return goalAmount.minWords === stats.wordCount ? "green" : "red";
       case goalName === "Max. Words" && goalAmount.maxWords !== undefined:
-        return goalAmount.maxWords <= stats.wordCount ? "green" : "red";
+        return goalAmount.maxWords === stats.wordCount ? "green" : "red";
       case goalName === "Target Reading Time" &&
         goalAmount.targetReadingTime !== undefined:
-        return goalAmount.targetReadingTime <= stats.readingTime
+        return goalAmount.targetReadingTime === stats.readingTime
           ? "green"
           : "red";
       default:
@@ -53,12 +53,12 @@ export default function GoalAlert({
     switch (true) {
       case goalName === "Max. Words" && goalAmount.maxWords !== undefined:
         return goalAmount.maxWords < stats.wordCount
-          ? "⚠You've met your word count!⚠"
+          ? "You've met your word count!🎉"
           : false;
       case goalName === "Target Reading Time" &&
         goalAmount.targetReadingTime !== undefined:
         return goalAmount.targetReadingTime >= stats.readingTime
-          ? "⚠You've met your reading goal!⚠"
+          ? "You've met your reading goal!🎉"
           : false;
       default:
         "";

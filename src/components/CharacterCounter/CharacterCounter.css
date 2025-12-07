@@ -1,0 +1,18 @@
+.current-goals-container{
+    background-color: white;
+    color:rgb(53, 50, 50);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.current-goals-title{
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.current-goals-stats-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
