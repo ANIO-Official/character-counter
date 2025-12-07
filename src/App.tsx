@@ -9,7 +9,7 @@ function App() {
       <CharacterCounter
       minWords={5}
       maxWords={15}
-      targetReadingTime={2}
+      targetReadingTime={10}
       />
     </>
   )

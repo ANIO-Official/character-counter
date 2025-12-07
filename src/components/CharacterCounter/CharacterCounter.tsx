@@ -29,7 +29,7 @@ export default function CharacterCounter({ minWords, maxWords, targetReadingTime
 
     //Formula for read time. 
     const calculateReadTime = (words: number) => {
-        return Math.floor(words * 0.3)
+        return Math.floor(words * 0.3) // 0.3 seconds per word 
     }
 
     const stats: TextStats = {
@@ -56,7 +56,7 @@ export default function CharacterCounter({ minWords, maxWords, targetReadingTime
                     <div className='current-goals-stats-container'>
                         <p id="min-words" className="stats-goals" hidden={checkNumValue(minWords)}><b>Min. Words:</b> <br/>{minWords}</p>
                         <p id="max-words" className="stats-goals" hidden={checkNumValue(maxWords)}><b>Max. Words:</b> <br/>{maxWords}</p>
-                        <p id="target-reading-time" className="stats-goals" hidden={checkNumValue(targetReadingTime)}><b>Target Reading Time:</b> <br/>{targetReadingTime} ms</p>
+                        <p id="target-reading-time" className="stats-goals" hidden={checkNumValue(targetReadingTime)}><b>Target Reading Time:</b> <br/>~{targetReadingTime} sec</p>
                     </div>
 
                 </div>

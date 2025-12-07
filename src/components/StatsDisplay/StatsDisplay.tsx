@@ -19,7 +19,7 @@ export default function StatsDisplay({stats, showReadingTime}:StatsDisplayProps)
                 <br/>
                 <div className='stat-container-reading-time' hidden={!showReadingTime}>
                     <p className="stats-title">Reading Time</p>
-                    <p className="stats-number">{stats.readingTime}ms</p>
+                    <p className="stats-number">~{stats.readingTime} sec</p>
                 </div>
             </div>
             <br/>
