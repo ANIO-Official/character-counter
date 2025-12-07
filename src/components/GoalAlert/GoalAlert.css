@@ -1,0 +1,21 @@
+
+.goal-alert{
+    background-color: rgba(255, 247, 221, 0.925);
+    border-radius: 0.5vw;
+    padding: 1dvw 5vw;
+    color: rgb(53, 50, 50);
+}
+.goal-alert-name{
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.goal-alert-stats{
+    font-size: 1.25rem;
+}
+
+.goal-alert-over{
+    font-weight: bolder;
+    color: rgb(110, 33, 6);
+    padding: 0.5vw 3vw;
+}

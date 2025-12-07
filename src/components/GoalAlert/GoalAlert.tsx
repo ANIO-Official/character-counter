@@ -1,3 +1,4 @@
+import './GoalAlert.css'
 import type { GoalAlertProps } from "../../type";
 
 export default function GoalAlert({
@@ -67,10 +68,10 @@ export default function GoalAlert({
   return (
     <>
       <div className="goal-alert">
-        <h3 className="goal-alert-name">Goal Alert | {goalName}</h3>
-        <p> Current Count: {matchStats()} words</p>
-        <p style={{ color: `${checkGoal()}` }}> Goal Count: {matchGoal()}</p>
-        <span>{isOverGoal()}</span>
+        <p className="goal-alert-name">Goal Alert | {goalName}</p>
+        <p className='goal-alert-stats'> <b>Current Count:</b> {matchStats()} words</p>
+        <p className='goal-alert-stats' style={{ color: `${checkGoal()}` }}> <b>Goal Count:</b> {matchGoal()}</p>
+        <span className='goal-alert-over'>{isOverGoal()}</span>
       </div>
     </>
   );
