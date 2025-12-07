@@ -35,12 +35,12 @@ Per Scholas Module 9 | Lessons 4-5- Initial interfaces, references, and resource
 
 Required: Have Node and NPM installed.
 
-1.  Clone the repository or Download the ZIP file and extract the files.
-2.  Open the file in Visual Studio Code.
-3.  Open the Terminal using Ctrl + ~
-4.  cd into the directory 'characte-counter' in the terminal.
-5.  Run the project using "npm run dev" in the terminal.
-6.  You should see 3 options appear. Follow the link for the Local option. Such as "http://localhost:5173/"
+ 1.  Clone the repository or Download the ZIP file and extract the files.
+ 2.  Open the file in Visual Studio Code.
+ 3.  Open the Terminal using Ctrl + ~
+ 4.  cd into the directory 'characte-counter' in the terminal.
+ 5.  Run the project using "npm run dev" in the terminal.
+ 6.  You should see 3 options appear. Follow the link for the Local option. Such as "http://localhost:5173/"
 
 A web app in your default browser will appear with the character counter available for use:
 
@@ -48,6 +48,34 @@ A web app in your default browser will appear with the character counter availab
 - View current stats for your entered text.
 - View The current set Writing Goals. Default: 5 minimum words, 5 max words, and 2ms of reading time.
 - View updates regarding the Goal Alert set. Default Goal Alert: Max. Words. Shows current word count and goal coutn comparison. Will alert via span text when over goal.
+
+**Want to change the goals?**
+
+ 1. Go to the App file 'App.tsx' 
+ 2. Change the values for the corresponding goal. 
+ 3. It will reflect in the browser.
+
+**Want to make a new Goal Alert Component?**
+
+*Note: The Goal Alert Component works in tandem with the Text Input and Character Component. So it must be inside of one.*
+
+ 1. Go to the 'Character Counter.css' file
+ 2. Create a new Goal Alert component with the following format:
+
+ ```JSX
+
+  <GoalAlert
+    goalName='Max. Words' // Must be of type goalType = 'Min. Words' | 'Max. Words' | 'Target Reading Time'
+    goalAmount={{ minWords, maxWords, targetReadingTime }} //The props object used by the CharacterCounter parent component.
+    stats={stats} //The stats object created by the CharacterCounter parent component, connected to the 'text' state variable.
+  />
+
+ ```
+ 3. Depending on the gameName set you will see the goal progress for the related goal and stat.
+
+  - 'Min. Words' -> Show whether minimum words goal is met in comparison to current stats.
+  - 'Max. Words' -> Show whether maximum words goal is met in comparison to current stats.
+  - 'Target Reading Time' -> Show whether reading time goal is met in comparison to current stats.
 
 ## Reflection
 
@@ -57,15 +85,12 @@ To handle state updates when the text changed, I used React hooks. In the Charac
 
 In summary, to handle the state updates to the text area element, I used a callback pattern. The callback pattern allows me to:
 
-1.  Let parent component Character Counter send the state variable 'text' and the function 'handleTextInputChange()' that uses the setState function that will update the state variable.
+ 1.  Let parent component Character Counter send the state variable 'text' and the function 'handleTextInputChange()' that uses the setState function that will update the state variable.
+ 2.  Then the child component Text Input, recieves the props and uses them when the onChage event calls the 'handleChange()' function.
+ 3.  The function 'handleChange()' updates the state variable 'text' by returning the function 'handleTextInputChange()' with the parameter 'newValue' to use.
+ 4.  The parent recieves this information, and essentially performs the following code:
 
-2.  Then the child component Text Input, recieves the props and uses them when the onChage event calls the 'handleChange()' function.
-
-3.  The function 'handleChange()' updates the state variable 'text' by returning the function 'handleTextInputChange()' with the parameter 'newValue' to use.
-
-4.  The parent recieves this information, and essentially performs the following code:
-
-```TSX
+```JSX
 
   //Basically this.
 
@@ -77,7 +102,7 @@ In summary, to handle the state updates to the text area element, I used a callb
 
 You can more so think of it as the child performing the code. Which can be viewed mentally like this below:
 
-```TSX
+```JSX
 
 //basically a nested function being performed
 const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -107,7 +132,7 @@ This is how I view the callback pattern interaction be better understanding. Hop
 
 When calculating reading time, I wanted to consider the word count. This is because we read by word not by character/letters (unless it's a single word letter). So I knew the formula would need to be equivalent to increasing the total time of reading by the number of words. Because the users can type a variety of words in the english language, I decided the best way to calculate the time per word would be to instead just use an average amount time for an approximate amount. The amount of words will vary as well, so the final formula would need to be a function that accepts the parameter of a number (word count/words). To get the number of words, I split the text input by spaces and clarified via filter to return only index values from the split that **are not** empty. Final result:
 
-```TSX
+```JSX
 
   //Actual Functions with Formulas --------------------------------------
 
