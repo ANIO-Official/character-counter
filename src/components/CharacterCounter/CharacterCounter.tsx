@@ -2,6 +2,7 @@ import { useState } from 'react'
 import TextInput from '../TextInput/TextInput'
 import StatsDisplay from "../StatsDisplay/StatsDisplay"
 import type { CharacterCounterProps, TextStats } from '../../type'
+import GoalAlert from '../GoalAlert/GoalAlert'
 
 export default function CharacterCounter({minWords, maxWords, targetReadingTime}:CharacterCounterProps) {
     const [text, setText] = useState(`Example: Peter Piper picked a pluck of peppers. How many peppers did Peter Picker pick?`)
@@ -50,6 +51,12 @@ export default function CharacterCounter({minWords, maxWords, targetReadingTime}
                     <p id="max-words" className="stats-goals" hidden={checkNumValue(maxWords)}>Max: {maxWords}</p>
                     <p id="target-reading-time" className="stats-goals" hidden={checkNumValue(targetReadingTime)}>Target Reading Time: {targetReadingTime}</p>
                 </div>
+                <br/>
+                <GoalAlert
+                goalName='Max. Words'
+                goalAmount={{minWords, maxWords, targetReadingTime}}
+                stats={stats}
+                />
             </div>
         </>
     )

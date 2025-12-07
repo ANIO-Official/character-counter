@@ -19,3 +19,10 @@ export interface TextInputProps{
     placeholder?: string;
     initialValue?: string;
 }
+export type goalType = 'Min. Words' | 'Max. Words' | 'Target Reading Time'; 
+
+export interface GoalAlertProps{
+    goalName: goalType;
+    goalAmount: CharacterCounterProps;
+    stats: TextStats;
+}
