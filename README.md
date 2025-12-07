@@ -11,9 +11,9 @@ Users should be able to:
 - Input text
 - See real-time statistics including:
 
-  1. Character Count
-  2. Word Count
-  3. Reading Time
+1. Character Count
+2. Word Count
+3. Reading Time
 
 ### Built with
 
@@ -35,12 +35,12 @@ Per Scholas Module 9 | Lessons 4-5- Initial interfaces, references, and resource
 
 Required: Have Node and NPM installed.
 
- 1.  Clone the repository or Download the ZIP file and extract the files.
- 2.  Open the file in Visual Studio Code.
- 3.  Open the Terminal using Ctrl + ~
- 4.  cd into the directory 'character-counter' in the terminal.
- 5.  Run the project using "npm run dev" in the terminal.
- 6.  You should see 3 options appear. Follow the link for the Local option. Such as "http://localhost:5173/"
+1.  Clone the repository or Download the ZIP file and extract the files.
+2.  Open the file in Visual Studio Code.
+3.  Open the Terminal using Ctrl + ~
+4.  cd into the directory 'character-counter' in the terminal.
+5.  Run the project using "npm run dev" in the terminal.
+6.  You should see 3 options appear. Follow the link for the Local option. Such as "http://localhost:5173/"
 
 A web app in your default browser will appear with the character counter available for use:
 
@@ -51,31 +51,32 @@ A web app in your default browser will appear with the character counter availab
 
 **Want to change the goals?**
 
- 1. Go to the App file 'App.tsx' 
- 2. Change the values for the corresponding goal. 
- 3. It will reflect in the browser.
+1.  Go to the App file 'App.tsx'
+2.  Change the values for the corresponding goal.
+3.  It will reflect in the browser.
 
 **Want to make a new Goal Alert Component?**
 
-*Note: The Goal Alert Component works in tandem with the Text Input and Character Component. So it must be inside of one.*
+_Note: The Goal Alert Component works in tandem with the Text Input and Character Component. So it must be inside of one._
 
- 1. Go to the 'Character Counter.css' file
- 2. Create a new Goal Alert component with the following format:
+1.  Go to the 'Character Counter.css' file
+2.  Create a new Goal Alert component with the following format:
 
- ```JSX
+```JSX
 
-  <GoalAlert
-    goalName='Max. Words' // Must be of type goalType = 'Min. Words' | 'Max. Words' | 'Target Reading Time'
-    goalAmount={{ minWords, maxWords, targetReadingTime }} //The props object used by the CharacterCounter parent component.
-    stats={stats} //The stats object created by the CharacterCounter parent component, connected to the 'text' state variable.
-  />
+ <GoalAlert
+   goalName='Max. Words' // Must be of type goalType = 'Min. Words' | 'Max. Words' | 'Target Reading Time'
+   goalAmount={{ minWords, maxWords, targetReadingTime }} //The props object used by the CharacterCounter parent component.
+   stats={stats} //The stats object created by the CharacterCounter parent component, connected to the 'text' state variable.
+ />
 
- ```
- 3. Depending on the goalName set you will see the goal progress for the related goal and stat.
+```
 
-  - 'Min. Words' -> Show whether minimum words goal is met in comparison to current stats.
-  - 'Max. Words' -> Show whether maximum words goal is met in comparison to current stats.
-  - 'Target Reading Time' -> Show whether reading time goal is met in comparison to current stats.
+3.  Depending on the goalName set you will see the goal progress for the related goal and stat.
+
+- 'Min. Words' -> Show whether minimum words goal is met in comparison to current stats.
+- 'Max. Words' -> Show whether maximum words goal is met in comparison to current stats.
+- 'Target Reading Time' -> Show whether reading time goal is met in comparison to current stats.
 
 ## Reflection
 
@@ -85,10 +86,10 @@ To handle state updates when the text changed, I used React hooks. In the Charac
 
 In summary, to handle the state updates to the text area element, I used a callback pattern. The callback pattern allows me to:
 
- 1.  Let parent component Character Counter send the state variable 'text' and the function 'handleTextInputChange()' that uses the setState function that will update the state variable.
- 2.  Then the child component Text Input, recieves the props and uses them when the onChage event calls the 'handleChange()' function.
- 3.  The function 'handleChange()' updates the state variable 'text' by returning the function 'handleTextInputChange()' with the parameter 'newValue' to use.
- 4.  The parent recieves this information, and essentially performs the following code:
+1.  Let parent component Character Counter send the state variable 'text' and the function 'handleTextInputChange()' that uses the setState function that will update the state variable.
+2.  Then the child component Text Input, recieves the props and uses them when the onChage event calls the 'handleChange()' function.
+3.  The function 'handleChange()' updates the state variable 'text' by returning the function 'handleTextInputChange()' with the parameter 'newValue' to use.
+4.  The parent recieves this information, and essentially performs the following code:
 
 ```JSX
 
@@ -124,9 +125,10 @@ const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     )
 
 /*
- In the above return, the text area's onChange is calling handleChange which updates the value and calls handlTextInputChange
-  using the newValue to update the 'text' state variable. The 'text' state variable is equal to the initialValue prop here as well. 
-  So it will always reflect the updates in the text area input.
+ In the above return, the text area's onChange is calling handleChange which updates the value
+ and calls handlTextInputChange using the newValue to update the 'text' state variable. The
+ 'text' state variable is equal to the initialValue prop here as well.  So it will always
+ reflect the updates in the text area input.
 */
 ```
 
