@@ -1,4 +1,4 @@
-# Component Library
+# Character Counter
 
 _A React + TypeScript + Vite project focused on creating a writing helper tool that responds to user feedback and uses state management, event handling, and component interaction via React Hooks._
 
